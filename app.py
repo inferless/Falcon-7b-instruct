@@ -11,7 +11,7 @@ class InferlessPythonModel:
         self.tokenizer = AutoTokenizer.from_pretrained('tiiuae/falcon-7b-instruct')
         self.generator = pipeline(
             'text-generation',
-            model='tiiuae/falcon-7b',
+            model='tiiuae/falcon-7b-instruct',
             tokenizer=self.tokenizer,
             torch_dtype=torch.bfloat16,
             trust_remote_code=True,
