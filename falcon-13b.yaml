@@ -1,9 +1,5 @@
 build:
-  system_packages:
-    - "libssl-dev"
-    - "tesseract-ocr"
-    - "libtesseract-dev"
-    - "ffmpeg"
+  cuda_version: "12.1.1"
   python_packages:
     - "transformers==4.29.0"
     - "torch==2.0.1"
