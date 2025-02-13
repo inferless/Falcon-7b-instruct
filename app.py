@@ -1,8 +1,6 @@
-import json
-import numpy as np
 import torch
 from transformers import pipeline
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer
 
 
 
