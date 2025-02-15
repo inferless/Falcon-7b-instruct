@@ -1,6 +1,6 @@
 version: 1.0.0
 
-name: Falcon-7b-instruct
+name: falcon-7b-instruct
 import_source: GIT
 
 # you can choose the options between ONNX, TENSORFLOW, PYTORCH
