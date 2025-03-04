@@ -1,15 +1,19 @@
+import os
+os.environ["HF_HUB_ENABLE_HF_TRANSFER"]='1'
+from huggingface_hub import snapshot_download
 import torch
 from transformers import pipeline
 from transformers import AutoTokenizer
 
 
-
 class InferlessPythonModel:
     def initialize(self):
-        self.tokenizer = AutoTokenizer.from_pretrained('tiiuae/falcon-7b-instruct')
+        model_id = 'tiiuae/falcon-7b-instruct'
+        snapshot_download(repo_id=model_id,allow_patterns=["*.safetensors"])
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.generator = pipeline(
             'text-generation',
-            model='tiiuae/falcon-7b-instruct',
+            model=model_id,
             tokenizer=self.tokenizer,
             torch_dtype=torch.bfloat16,
             trust_remote_code=True,
